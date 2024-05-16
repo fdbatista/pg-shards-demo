@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Consumption } from './entities/consumption.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'db',
       password: 'db',
       database: 'db',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [Consumption],
     }),
     TypeOrmModule.forRoot({
       name: 'shard2',
@@ -24,7 +25,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'db',
       password: 'db',
       database: 'db',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [Consumption],
     }),
     TypeOrmModule.forRoot({
       name: 'shard3',
@@ -34,7 +35,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'db',
       password: 'db',
       database: 'db',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [Consumption],
     }),
   ],
   controllers: [AppController],
