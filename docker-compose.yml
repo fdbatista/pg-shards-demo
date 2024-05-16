@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  pg-shard-1:
+    image: postgres:latest
+    container_name: pg-shard-1
+    ports:
+      - "5437:5432"
+    volumes:
+      - ./docker/pg-shard-1:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  pg-shard-2:
+    image: postgres:latest
+    container_name: pg-shard-2
+    ports:
+      - "5438:5432"
+    volumes:
+      - ./docker/pg-shard-2:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  pg-shard-3:
+    image: postgres:latest
+    container_name: pg-shard-3
+    ports:
+      - "5439:5432"
+    volumes:
+      - ./docker/pg-shard-3:/var/lib/postgresql/data
+    env_file:
+      - .env
