@@ -30,3 +30,21 @@ services:
       - ./docker/pg-shard-3:/var/lib/postgresql/data
     env_file:
       - .env
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shard-demo-app
+    env_file:
+      - .env
+    environment:
+      - PORT=${APP_PORT}
+    ports:
+      - '3000:3000'
+    depends_on:
+      - pg-shard-1
+      - pg-shard-2
+      - pg-shard-3
+    volumes:
+      - ./src:/app/src
