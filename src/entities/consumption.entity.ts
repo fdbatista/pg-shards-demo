@@ -6,11 +6,14 @@ export class Consumption {
   id: number;
 
   @Column()
-  sourceId: string;
-
-  @Column()
-  timestamp: Date;
+  source_id: string;
 
   @Column()
   value: number;
+  
+  @Column()
+  description: string;
+  
+  @Column()
+  timestamp: Date;
 }

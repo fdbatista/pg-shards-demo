@@ -20,7 +20,7 @@ export class AppService {
     const repository = this.getRepositoryForDevice(deviceId)
 
     return repository.find({
-      where: { sourceId: deviceId }
+      where: { source_id: deviceId }
     })
   }
 
