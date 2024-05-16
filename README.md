@@ -5,15 +5,13 @@ Start the containers:
 docker-compose up --force-recreate --build -d
 ```
 
-Migrations not tested. They should work with:
+Migrations not working yet, the following command is only for reference:
 
 ```bash
 npm run migration:run ./data-source-shard1.ts 
-npm run migration:run ./data-source-shard2.ts 
-npm run migration:run ./data-source-shard3.ts 
 ```
 
-In case they don't, just create the table manually on each DB instance:
+Generate schema manually on each DB instance:
 
 ```sql
 CREATE TABLE "public"."consumption" ( 
@@ -25,7 +23,7 @@ CREATE TABLE "public"."consumption" (
 );
 ```
 
-And then populate it with some random data:
+And then populate each DB with some random data:
 
 ```sql
 --INSTANCE 1
